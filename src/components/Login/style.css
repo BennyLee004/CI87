@@ -1,0 +1,9 @@
+.login--light {
+    background-color: #ffff;
+    color: #23272f;
+}
+
+.login--dark {
+    background-color: #23272f;
+    color: white;
+}

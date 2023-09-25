@@ -1,23 +1,17 @@
 import { useState } from "react";
-import TodoList from "./components/TodoList";
-import { DATA } from "./data/Data";
-import Hobbies from "./components/Hobbies";
+import Login from "./components/Login";
+import ThemeContext from "./contexts/ThemeContext";
+import Header from "./components/Header";
 import "./App.css"
 const App = () => {
-
-  const [todoItems, setTodoItems] = useState(DATA);
-
-  const addTodo = () => {
-    setTodoItems([
-      ...todoItems,
-      'more about todo'
-    ])
-  }
-
+  const [theme, setTheme] = useState("light");
+  console.log(theme.theme)
  return (
     <div className="app">
-      <TodoList todoItems={todoItems} addTodo={addTodo}/>
-      <Hobbies/>
+      <ThemeContext.Provider value={{theme: theme, setTheme: setTheme }}>
+        <Header/>
+        <Login/>
+      </ThemeContext.Provider>
     </div>
   );
 };
