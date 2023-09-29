@@ -1,17 +1,20 @@
-import React, {useContext} from "react";
-import ThemeContext from "../../contexts/ThemeContext";
-
+import React from 'react'
+import "./style.css"
+import { NavLink } from 'react-router-dom' 
 function Header() {
-  const {theme, setTheme} = useContext(ThemeContext)
-  console.log(theme)
+  const linkClassName = params => {
+    return `header__link ${params.isActive ? "header__link--active" : ""}`
+  }
   return (
-    <div className="header">
-      <select value={theme} onChange={(e) => setTheme(e.target.value)}>
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
+    <div className='header'>
+      <ul>
+        <li><NavLink className={linkClassName}  to="/">Home</NavLink></li>
+        <li><NavLink className={linkClassName} to="/welcome">Welcome</NavLink></li>
+        <li><NavLink className={linkClassName} to="/products">Products</NavLink></li>
+        <li><NavLink className={linkClassName} to="/profile">Profile</NavLink></li>
+      </ul>
     </div>
-  );
+  )
 }
 
-export default Header;
+export default Header 

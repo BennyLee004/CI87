@@ -1,0 +1,24 @@
+.header ul  {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header li  {
+    float: left;
+    margin-left: 1em;
+    text-decoration: none;
+    color: black;
+
+}
+.header__link {
+    text-decoration: none;
+    color: black;
+}
+.header__link--active {
+    color: rgb(104, 139, 228);
+    background-color: white;
+    padding: 8px;
+    border-radius: 50%;
+}

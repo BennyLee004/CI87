@@ -1,17 +1,31 @@
-import { useState } from "react";
-import Login from "./components/Login";
-import ThemeContext from "./contexts/ThemeContext";
-import Header from "./components/Header";
+
 import "./App.css"
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Home from "./pages/Home";
+import Welcome from "./pages/Welcome";
+import Products from "./pages/Products";
+import Profile from "./pages/Profile";
+import { Route, Routes } from "react-router-dom";
+import AboutMe from "./pages/AboutMe";
+import Courses from "./pages/Courses";
+
 const App = () => {
-  const [theme, setTheme] = useState("light");
-  console.log(theme.theme)
+
  return (
     <div className="app">
-      <ThemeContext.Provider value={{theme: theme, setTheme: setTheme }}>
-        <Header/>
-        <Login/>
-      </ThemeContext.Provider>
+      <Header/>
+      <Routes>
+        <Route path="/" element={<Home/>} /> 
+        <Route path="/welcome" element={<Welcome/>} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/profile" element={<Profile/>}>
+          <Route path="" element={<AboutMe/>} />
+          <Route path="courses" element={<Courses/>} />
+        </Route>
+        <Route path="*" element={<h1>Page not found</h1>} />
+      </Routes>
+      <Footer/>
     </div>
   );
 };
